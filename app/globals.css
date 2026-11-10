@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-app);
+
+  /* Brand Design System Tokens */
+  --color-brand-page: var(--color-page);
+  --color-brand-card: var(--color-card);
+  --color-brand-subtle: var(--color-subtle);
+
+  --color-brand-text-primary: var(--color-text-primary);
+  --color-brand-text-secondary: var(--color-text-secondary);
+  --color-brand-text-muted: var(--color-text-muted);
+
+  --color-brand-border-default: var(--color-border);
+  --color-brand-border-hover: var(--color-border-hover);
+  --color-brand-border-strong: var(--color-border-strong);
+
+  --color-brand-accent: var(--color-accent);
+
+  --color-brand-success: var(--color-success);
+  --color-brand-success-bg: var(--color-success-bg);
+  --color-brand-success-border: var(--color-success-border);
+
+  --color-brand-warning: var(--color-warning);
+  --color-brand-warning-bg: var(--color-warning-bg);
+  --color-brand-warning-border: var(--color-warning-border);
+
+  --color-brand-danger: var(--color-danger);
+  --color-brand-danger-bg: var(--color-danger-bg);
+  --color-brand-danger-border: var(--color-danger-border);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #131313;
+
+    /* Backgrounds */
+    --color-page: #ffffff;
+    --color-card: #f8f9fa;
+    --color-subtle: #f1f5f9;
+
+    /* Text */
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #334155;
+    --color-text-muted: #64748b;
+
+    /* Borders */
+    --color-border: #e2e8f0;
+    --color-border-hover: #cbd5e1;
+    --color-border-strong: #94a3b8;
+
+    /* Accent */
+    --color-accent: #4338CA;
+
+    /* Status — Approved */
+    --color-success: #16a34a;
+    --color-success-bg: #DCFCE7;
+    --color-success-border: #BBF7D0;
+
+    /* Status — In Progress */
+    --color-warning: #ca8a04;
+    --color-warning-bg: #FEF9C3;
+    --color-warning-border: #FDE68A;
+
+    /* Status — Error / Destructive */
+    --color-danger: #dc2626;
+    --color-danger-bg: #FEE2E2;
+    --color-danger-border: #FECACA;
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 8px;
+    --radius-full: 9999px;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+
+      /* Dark Mode Brand Token Overrides */
+      --color-page: #0a0a0a;
+      --color-card: #0f172a;
+      --color-subtle: #1e293b;
+
+      --color-text-primary: #f8fafc;
+      --color-text-secondary: #cbd5e1;
+      --color-text-muted: #94a3b8;
+
+      --color-border: #1e293b;
+      --color-border-hover: #334155;
+      --color-border-strong: #475569;
+
+      --color-accent: #6366f1;
+
+      --color-success: #4ade80;
+      --color-success-bg: rgba(6, 78, 59, 0.5);
+      --color-success-border: #065f46;
+
+      --color-warning: #facc15;
+      --color-warning-bg: rgba(69, 26, 3, 0.5);
+      --color-warning-border: #854d0e;
+
+      --color-danger: #f87171;
+      --color-danger-bg: rgba(76, 5, 25, 0.5);
+      --color-danger-border: #9f1239;
+    }
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    /* Dark Mode Brand Token Overrides */
+    --color-page: #0a0a0a;
+    --color-card: #0f172a;
+    --color-subtle: #1e293b;
+
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+
+    --color-border: #1e293b;
+    --color-border-hover: #334155;
+    --color-border-strong: #475569;
+
+    --color-accent: #6366f1;
+
+    --color-success: #4ade80;
+    --color-success-bg: rgba(6, 78, 59, 0.5);
+    --color-success-border: #065f46;
+
+    --color-warning: #facc15;
+    --color-warning-bg: rgba(69, 26, 3, 0.5);
+    --color-warning-border: #854d0e;
+
+    --color-danger: #f87171;
+    --color-danger-bg: rgba(76, 5, 25, 0.5);
+    --color-danger-border: #9f1239;
+  }
+}
+
+body {
+  background: var(--color-page, var(--background));
+  color: var(--color-text-primary, var(--foreground));
+  font-family: var(--font-app), sans-serif;
+}
+
+/* Accessible and high-contrast disabled form controls for light & dark mode */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
+    background-color: #0f172a !important;
+    /* slate-900 */
+    color: #f8fafc !important;
+    /* slate-50 */
+    border-color: #334155 !important;
+    /* slate-700 */
+    -webkit-text-fill-color: #f8fafc !important;
+  }
+
+  input:disabled::placeholder,
+  textarea:disabled::placeholder {
+    color: #64748b !important;
+    /* slate-500 */
+    -webkit-text-fill-color: #64748b !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
+    background-color: #f1f5f9 !important;
+    /* slate-100 */
+    color: #0f172a !important;
+    /* slate-900 */
+    border-color: #cbd5e1 !important;
+    /* slate-300 */
+    -webkit-text-fill-color: #0f172a !important;
+  }
+
+  input:disabled::placeholder,
+  textarea:disabled::placeholder {
+    color: #94a3b8 !important;
+    /* slate-400 */
+    -webkit-text-fill-color: #94a3b8 !important;
+  }
+}
+
+/* Support explicit .dark class if toggled on html/body */
+.dark input:disabled,
+.dark textarea:disabled,
+.dark select:disabled {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+.dark input:disabled::placeholder,
+.dark textarea:disabled::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+}
